@@ -1,15 +1,27 @@
 package com.strangerws.netpractic.hierarchy.abstracts;
 
+import com.strangerws.netpractic.hierarchy.misc.Entity;
+
+import java.util.TreeSet;
+
 /**
  * Created by User on 15.10.2016.
  */
 public abstract class Weapon {
-    private double damage;
-    private double weight;
-    private double price;
-    private double durability;
+    protected double damage;
+    protected double durability;
+    protected TreeSet<String> modifiers;
 
-    abstract double dealDamage();
-    abstract void lowerDurability();
-    abstract void breakWeapon();
+    abstract void dealDamage(Entity target);
+
+    void lowerDurability() {
+        if (durability > 0) {
+            durability--;
+        } else breakWeapon();
+    }
+
+    void breakWeapon() {
+        damage = 0;
+    }
 }
+
