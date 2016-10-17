@@ -1,4 +1,4 @@
-package com.strangerws.netpractic.hierarchy.misc;
+package com.netcracker.edu.ssu.dobrynin.artemiy.task001.misc;
 
 /**
  * Created by User on 17.10.2016.

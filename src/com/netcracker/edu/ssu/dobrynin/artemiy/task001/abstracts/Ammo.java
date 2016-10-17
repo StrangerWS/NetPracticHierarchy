@@ -1,7 +1,7 @@
-package com.strangerws.netpractic.hierarchy.abstracts;
+package com.netcracker.edu.ssu.dobrynin.artemiy.task001.abstracts;
 
-import com.strangerws.netpractic.hierarchy.interfaces.*;
-import com.strangerws.netpractic.hierarchy.misc.Entity;
+import com.netcracker.edu.ssu.dobrynin.artemiy.task001.interfaces.*;
+import com.netcracker.edu.ssu.dobrynin.artemiy.task001.misc.Entity;
 
 /**
  * Created by User on 17.10.2016.

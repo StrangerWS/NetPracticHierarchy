@@ -1,32 +1,32 @@
-package com.strangerws.netpractic.hierarchy.melee;
+package com.netcracker.edu.ssu.dobrynin.artemiy.task001.melee;
 
-import com.strangerws.netpractic.hierarchy.misc.Entity;
-import com.strangerws.netpractic.hierarchy.abstracts.Melee;
+import com.netcracker.edu.ssu.dobrynin.artemiy.task001.misc.Entity;
+import com.netcracker.edu.ssu.dobrynin.artemiy.task001.abstracts.Melee;
 
 import java.util.Random;
 
 /**
  * Created by User on 17.10.2016.
  */
-public class Sword extends Melee {
-    Sword(){
+public class Axe extends Melee {
+    Axe() {
 
-        damage = 100;
-        durability = 500;
-        strengthRequirements = 2;
+        damage = 120;
+        durability = 450;
+        strengthRequirements = 5;
 
         Random random = new Random();
         int getRand = random.nextInt(100);
-        if (getRand < 20 && getRand >= 0){
+        if (getRand < 20 && getRand >= 0) {
             modifiers.add("Icy");
         }
-        if (getRand < 40 && getRand >= 20){
+        if (getRand < 40 && getRand >= 20) {
             modifiers.add("Bloody");
         }
-        if (getRand < 60 && getRand >= 40){
+        if (getRand < 60 && getRand >= 40) {
             modifiers.add("Fiery");
         }
-        if (getRand < 80 && getRand >= 60){
+        if (getRand < 80 && getRand >= 60) {
             modifiers.add("Stunning");
         }
     }
@@ -51,19 +51,20 @@ public class Sword extends Melee {
         target.isStunned();
     }
 
-    public void hit(Entity target){
+    void hit(Entity target) {
         dealDamage(target);
-        if (modifiers.contains("Icy")){
+        if (modifiers.contains("Icy")) {
             setFreeze(target);
         }
-        if (modifiers.contains("Bloody")){
+        if (modifiers.contains("Bloody")) {
             setBloodLoss(target);
         }
-        if (modifiers.contains("Fiery")){
+        if (modifiers.contains("Fiery")) {
             setFire(target);
         }
-        if (modifiers.contains("Stunning")){
+        if (modifiers.contains("Stunning")) {
             setStun(target);
         }
     }
 }
+

@@ -1,6 +1,6 @@
-package com.strangerws.netpractic.hierarchy.abstracts;
+package com.netcracker.edu.ssu.dobrynin.artemiy.task001.abstracts;
 
-import com.strangerws.netpractic.hierarchy.misc.Entity;
+import com.netcracker.edu.ssu.dobrynin.artemiy.task001.misc.Entity;
 
 import java.util.TreeSet;
 
