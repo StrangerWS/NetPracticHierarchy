@@ -16,4 +16,5 @@ public abstract class Melee extends Weapon implements Bloody, Fiery, Icy, Stunni
         target.decreaseHP(damage);
         lowerDurability();
     }
+
 }

@@ -6,9 +6,9 @@ import com.netcracker.edu.ssu.dobrynin.artemiy.task001.misc.Entity;
 /**
  * Created by User on 17.10.2016.
  */
-public class Ammo implements Bloody, Fiery, Icy, Stunning, Explosive {
-    private String modifier = "";
-    private double damage;
+public abstract class Ammo implements Bloody, Fiery, Icy, Stunning, Explosive {
+    protected String modifier;
+    protected double damage;
 
     @Override
     public void setFire(Entity target) {
@@ -34,8 +34,9 @@ public class Ammo implements Bloody, Fiery, Icy, Stunning, Explosive {
     public void explode(Entity target) {
         target.explosionDamage();
     }
-    public void shoot(Entity target, Ranged base){
-        base.dealDamage(target);
+
+    public void shoot(Entity target){
+        target.decreaseHP(damage);
         if (modifier.equals("Icy")){
             setFreeze(target);
         }
@@ -49,6 +50,4 @@ public class Ammo implements Bloody, Fiery, Icy, Stunning, Explosive {
             setStun(target);
         }
     }
-
-
 }

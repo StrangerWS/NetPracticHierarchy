@@ -19,7 +19,6 @@ public abstract class Weapon {
             durability--;
         } else breakWeapon();
     }
-
     void breakWeapon() {
         damage = 0;
     }
