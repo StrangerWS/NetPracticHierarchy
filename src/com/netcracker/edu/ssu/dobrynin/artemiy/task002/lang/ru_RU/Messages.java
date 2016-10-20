@@ -1,7 +1,6 @@
 package com.netcracker.edu.ssu.dobrynin.artemiy.task002.lang.ru_RU;
 
 import com.netcracker.edu.ssu.dobrynin.artemiy.task002.GameApp;
-import com.netcracker.edu.ssu.dobrynin.artemiy.task002.game.Game;
 
 /**
  * Created by User on 20.10.2016.
@@ -14,7 +13,7 @@ public final class Messages {
             "\u00A9" + " Все права защищены.";
     public static final String HELLO_MSG =
             "Добро пожаловать в Игру Чисел! v." + GameApp.VERSION + "\n" +
-            "В этой игре вам необходимо угадать число загаданное Машиной.\n" +
+            "В этой игре вам необходимо угадать число, загаданное Машиной.\n" +
             "Игра закончится, если вы потратите все доступные очки.\n" +
             "Ну что, сыграем?";
     public static final String INPUT_ERROR = "Неверно введены данные. Попробуйте снова:";
@@ -34,11 +33,11 @@ public final class Messages {
             "Ввести число и попытаться угадать (-50 очков)\n" +
             "Ввести команду \"очки\" и посмотреть оставшееся количество очков\n" +
             "[WIP]Ввести команду \"подсказка\", чтобы использовать одну из подсказок за очки\n" +
-            "Ввести команду \"выход\" для выхода из игры" +
-            "Ввести команду \"кредиты\" для просмотра информации об игре" +
+            "Ввести команду \"выход\" для выхода из игры\n" +
+            "Ввести команду \"кредиты\" для просмотра информации об игре\n" +
             "Ввести команду \"помощь\" для вывода этого сообщения";
-    public static final String HELP_ASK = "Выводить текстовую помощь? \"да\"/\"нет\"";
-    public static final String NEW_GAME_ASK = "Вы хотите сыграть ещё? \"да\"/\"нет\"";
+    public static final String HELP_ASK = "Выводить текстовую помощь? да/нет";
+    public static final String NEW_GAME_ASK = "Вы хотите сыграть ещё? да/нет";
     public static final String POINTS_SHOW = "Ваши очки: ";
     public static final String WIN_CASE = "Вы угадали!";
     public static final String WRONG_CASE = "Вы не угадали.";
