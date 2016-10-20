@@ -3,6 +3,7 @@ package com.netcracker.edu.ssu.dobrynin.artemiy.task002.game;
 import com.netcracker.edu.ssu.dobrynin.artemiy.task002.generator.Generator;
 import com.netcracker.edu.ssu.dobrynin.artemiy.task002.helper.Helper;
 import com.netcracker.edu.ssu.dobrynin.artemiy.task002.lang.ru_RU.Messages;
+import javafx.util.Pair;
 
 import java.util.Scanner;
 
@@ -19,7 +20,12 @@ public class Game {
     private boolean helpMsg;
     private boolean quitFlag;
 
+    private int cuttersLeft;
+    private int locatorsLeft;
+    private int randIntLeft;
+
     private Scanner scanner;
+    private Helper helper;
 
     public Game() {
         scanner = new Scanner(System.in);
@@ -28,12 +34,19 @@ public class Game {
         tryCount = 0;
         helpMsg = true;
         quitFlag = false;
+
+        cuttersLeft = 3;
+        locatorsLeft = 10;
+        randIntLeft = 2;
+        helper = new Helper();
     }
 
     public void start() {
         chooseDifficulty();
         guessNumber = Generator.getRandomNumber(origin, bound);
         points = (bound - origin) * 100;
+        //DEBUG
+        System.out.println(guessNumber);
         guesser();
         if (!quitFlag) cycleStart();
     }
@@ -111,20 +124,23 @@ public class Game {
                 } else {
                     continue;
                 }
-            } else if (cmd.equalsIgnoreCase("кредиты")){
+            } else if (cmd.equalsIgnoreCase("кредиты")) {
                 System.out.println(Messages.CREDITS);
                 continue;
-            } else if (cmd.equalsIgnoreCase("очки")){
+            } else if (cmd.equalsIgnoreCase("очки")) {
                 System.out.println(Messages.POINTS_SHOW + points);
                 continue;
-            } else if (cmd.equalsIgnoreCase("помощь")){
+            } else if (cmd.equalsIgnoreCase("помощь")) {
                 System.out.println(Messages.INPUT_HELP);
+                continue;
+            } else if (cmd.equalsIgnoreCase(("подсказка"))) {
+                askForHelp();
                 continue;
             }
 
-            try{
+            try {
                 tryNumber = Integer.parseInt(cmd);
-                if (tryNumber == guessNumber){
+                if (tryNumber == guessNumber) {
                     System.out.println(Messages.WIN_CASE);
                     break;
                 } else if (tryNumber != guessNumber) {
@@ -132,13 +148,73 @@ public class Game {
                     points -= 50;
                     System.out.println(Messages.WRONG_CASE);
                 }
-            } catch (NumberFormatException exception){
+            } catch (NumberFormatException exception) {
                 System.out.println(Messages.INPUT_ERROR);
             }
 
 
         }
         if (!quitFlag) gameOverNotify();
+    }
+
+    private void askForHelp() {
+        int helperChoice = 0;
+        System.out.println(Messages.HELPERS);
+        System.out.println(Messages.HELPER_CUTTER + cuttersLeft);
+        System.out.println(Messages.HELPER_LOCATE + locatorsLeft);
+        System.out.println(Messages.HELPER_RANDINT + randIntLeft);
+        System.out.println(Messages.HELPERS_LEAVE);
+        while (true) {
+            try {
+                helperChoice = Integer.parseInt(scanner.nextLine());
+                if (helperChoice < 1 || helperChoice > 4) {
+                    throw new NumberFormatException();
+                } else {
+                    break;
+                }
+            } catch (NumberFormatException exception) {
+                System.out.println(Messages.INPUT_ERROR);
+            }
+        }
+        switch (helperChoice) {
+            case 1:
+                if (cuttersLeft > 0 && points >= 2000) {
+                    Pair<Integer, Integer> newBounds = helper.cutRange(origin, bound, guessNumber);
+                    origin = newBounds.getKey();
+                    bound = newBounds.getValue();
+                    System.out.println(helper.rangeHelper(origin, bound));
+                    cuttersLeft--;
+                    points -= 1000;
+                } else System.out.println(Messages.HELPER_ERROR);
+                break;
+            case 2:
+                if (locatorsLeft > 0 && points >= 500) {
+                    int locator;
+                    while (true) {
+                        try {
+                            locator = Integer.parseInt(scanner.nextLine());
+                            System.out.println(helper.locateInt(locator, guessNumber));
+
+                        } catch (NumberFormatException exception) {
+                            System.out.println(Messages.INPUT_ERROR);
+                            continue;
+                        }
+                        break;
+                    }
+                    locatorsLeft--;
+                    points -= 100;
+                } else System.out.println(Messages.HELPER_ERROR);
+                break;
+            case 3:
+                if (randIntLeft > 0 && points >= 5000) {
+                    System.out.println(Messages.RANDINT_GOT + helper.randInt(guessNumber));
+                    randIntLeft--;
+                    points -= 2500;
+                } else System.out.println(Messages.HELPER_ERROR);
+                break;
+            case 4:
+                break;
+        }
     }
 
     private void cycleStart() {
