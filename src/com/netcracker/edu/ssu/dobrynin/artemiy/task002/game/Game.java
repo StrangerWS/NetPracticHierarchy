@@ -99,7 +99,7 @@ public class Game {
             System.out.println(Messages.INPUT_HELP);
         }
         System.out.println(Messages.GAME_START);
-        while (true) {
+        while (points > 0) {
             System.out.println(Messages.INPUT_ASK);
             String cmd = scanner.nextLine();
             if (cmd.equalsIgnoreCase("выход")) {
