@@ -46,7 +46,8 @@ public final class Messages {
     public static final String HELPERS = "Вам доступны:\n";
     public static final String HELPER_CUTTER = "1 - Обрезка диапазона пополам (-2000 очков): ";
     public static final String HELPER_LOCATE = "2 - Местоположение относительно числа (-500 очков): ";
-    public static final String HELPER_RANDINT = "3 - Получение близкого к ответу числа (-5000 очков):";
+    public static final String HELPER_LOCATE_INPUT = "Введите число для сравнения с загаданным числом: ";
+    public static final String HELPER_RANDINT = "3 - Получение близкого к ответу числа (-5000 очков) :";
     public static final String HELPERS_LEAVE = "4 - Выйти из меню подсказок";
     public static final String RANDINT_GOT = "Возможно, загаданное число - ";
     public static final String HELPER_ERROR = "Недостаточно средств для подсказки";

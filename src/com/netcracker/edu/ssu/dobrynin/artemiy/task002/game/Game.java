@@ -45,8 +45,6 @@ public class Game {
         chooseDifficulty();
         guessNumber = Generator.getRandomNumber(origin, bound);
         points = (bound - origin) * 100;
-        //DEBUG
-        System.out.println(guessNumber);
         guesser();
         if (!quitFlag) cycleStart();
     }
@@ -67,6 +65,7 @@ public class Game {
         }
         switch (difficulty) {
             case 1:
+                origin = 1;
                 bound = 9;
                 break;
             case 2:
@@ -192,6 +191,7 @@ public class Game {
                     int locator;
                     while (true) {
                         try {
+                            System.out.println(Messages.HELPER_LOCATE_INPUT);
                             locator = Integer.parseInt(scanner.nextLine());
                             System.out.println(helper.locateInt(locator, guessNumber));
 
