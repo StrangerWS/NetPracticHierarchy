@@ -184,7 +184,7 @@ public class Game {
                     bound = newBounds.getValue();
                     System.out.println(helper.rangeHelper(origin, bound));
                     cuttersLeft--;
-                    points -= 1000;
+                    points -= 2000;
                 } else System.out.println(Messages.HELPER_ERROR);
                 break;
             case 2:
@@ -202,14 +202,14 @@ public class Game {
                         break;
                     }
                     locatorsLeft--;
-                    points -= 100;
+                    points -= 500;
                 } else System.out.println(Messages.HELPER_ERROR);
                 break;
             case 3:
                 if (randIntLeft > 0 && points >= 5000) {
                     System.out.println(Messages.RANDINT_GOT + helper.randInt(guessNumber));
                     randIntLeft--;
-                    points -= 2500;
+                    points -= 5000;
                 } else System.out.println(Messages.HELPER_ERROR);
                 break;
             case 4:

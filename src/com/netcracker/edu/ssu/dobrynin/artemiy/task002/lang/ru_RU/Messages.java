@@ -44,9 +44,9 @@ public final class Messages {
     public static final String GAME_OVER = "Игра окончена.";
     public static final String TRY_COUNT_SHOW = "Количество попыток: ";
     public static final String HELPERS = "Вам доступны:\n";
-    public static final String HELPER_CUTTER = "1 - Обрезка диапазона пополам (-1000 очков): ";
-    public static final String HELPER_LOCATE = "2 - Местоположение относительно числа (-100 очков): ";
-    public static final String HELPER_RANDINT = "3 - Получение ответа с вероятностью 5% (-2500 очков):";
+    public static final String HELPER_CUTTER = "1 - Обрезка диапазона пополам (-2000 очков): ";
+    public static final String HELPER_LOCATE = "2 - Местоположение относительно числа (-500 очков): ";
+    public static final String HELPER_RANDINT = "3 - Получение близкого к ответу числа (-5000 очков):";
     public static final String HELPERS_LEAVE = "4 - Выйти из меню подсказок";
     public static final String RANDINT_GOT = "Возможно, загаданное число - ";
     public static final String HELPER_ERROR = "Недостаточно средств для подсказки";
