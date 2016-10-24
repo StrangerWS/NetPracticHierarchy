@@ -123,7 +123,7 @@ public class Game {
                 System.out.println(Messages.CREDITS);
                 continue;
             } else if (cmd.equalsIgnoreCase("очки")) {
-                System.out.println(Messages.POINTS_SHOW + points);
+                System.out.println(String.format(Messages.POINTS_SHOW, points));
                 continue;
             } else if (cmd.equalsIgnoreCase("помощь")) {
                 System.out.println(Messages.INPUT_HELP);
