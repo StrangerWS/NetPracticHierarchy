@@ -18,7 +18,6 @@ public class Game {
     private int tryCount;
     private int difficulty;
     private boolean helpMsg;
-    private boolean quitFlag;
 
     private int cuttersLeft;
     private int locatorsLeft;
@@ -37,7 +36,6 @@ public class Game {
         bound = 1;
         tryCount = 0;
         helpMsg = true;
-        quitFlag = false;
 
         cuttersLeft = 3;
         locatorsLeft = 10;
@@ -50,7 +48,7 @@ public class Game {
         guessNumber = Generator.getRandomNumber(origin, bound);
         points = (bound - origin) * 100;
         guesser();
-        if (!quitFlag) cycleStart();
+        cycleStart();
     }
 
     private void chooseDifficulty() {
@@ -84,8 +82,8 @@ public class Game {
                 getRange();
                 break;
             case 5:
-                origin = new Generator().getRandomNumber(1, 10_000);
-                bound = new Generator().getRandomNumber(10_100, 1_000_000);
+                origin = Generator.getRandomNumber(1, 10_000);
+                bound = Generator.getRandomNumber(10_100, 1_000_000);
                 System.out.println(new Helper().rangeHelper(origin, bound));
         }
     }
@@ -151,7 +149,10 @@ public class Game {
 
 
         }
-        if (!quitFlag) gameOverNotify();
+
+        System.out.println(String.format(Messages.GAME_OVER, tryCount));
+        System.out.println(String.format(Messages.POINTS_SHOW, points));
+        System.out.println();
     }
 
     private void askForHelp() {
@@ -234,7 +235,6 @@ public class Game {
                 break;
             } else if (flag.equalsIgnoreCase("нет")) {
                 quit();
-                continue;
             } else {
                 System.out.println(Messages.INPUT_ERROR);
             }
@@ -242,18 +242,11 @@ public class Game {
 
     }
 
-    private void gameOverNotify() {
-        System.out.println(String.format(Messages.GAME_OVER, tryCount));
-        System.out.println(String.format(Messages.POINTS_SHOW, points));
-        System.out.println();
-    }
-
     private void quit() {
         System.out.println(Messages.QUIT_MSG);
         while (true) {
             String flag = scanner.nextLine();
             if (flag.equalsIgnoreCase("да")) {
-                gameOverNotify();
                 System.out.println(Messages.CREDITS);
                 System.exit(0);
                 break;
@@ -263,7 +256,5 @@ public class Game {
                 System.out.println(Messages.INPUT_ERROR);
             }
         }
-
-        return;
     }
 }
