@@ -29,6 +29,10 @@ public class Game {
 
     public Game() {
         scanner = new Scanner(System.in);
+        init();
+    }
+
+    private void init() {
         origin = 1;
         bound = 1;
         tryCount = 0;
@@ -115,14 +119,8 @@ public class Game {
             System.out.println(Messages.INPUT_ASK);
             String cmd = scanner.nextLine();
             if (cmd.equalsIgnoreCase("выход")) {
-                if (quit()) {
-                    quitFlag = true;
-                    gameOverNotify();
-                    System.out.println(Messages.CREDITS);
-                    break;
-                } else {
-                    continue;
-                }
+                quit();
+                continue;
             } else if (cmd.equalsIgnoreCase("кредиты")) {
                 System.out.println(Messages.CREDITS);
                 continue;
@@ -158,11 +156,7 @@ public class Game {
 
     private void askForHelp() {
         int helperChoice = 0;
-        System.out.println(Messages.HELPERS);
-        System.out.println(Messages.HELPER_CUTTER + cuttersLeft);
-        System.out.println(Messages.HELPER_LOCATE + locatorsLeft);
-        System.out.println(Messages.HELPER_RANDINT + randIntLeft);
-        System.out.println(Messages.HELPERS_LEAVE);
+        System.out.println(String.format(Messages.HELPERS, cuttersLeft, locatorsLeft, randIntLeft));
         while (true) {
             try {
                 helperChoice = Integer.parseInt(scanner.nextLine());
@@ -207,7 +201,7 @@ public class Game {
                 break;
             case 3:
                 if (randIntLeft > 0 && points >= 5000) {
-                    System.out.println(Messages.RANDINT_GOT + helper.randInt(guessNumber));
+                    System.out.println(String.format(Messages.RANDINT_GOT, helper.randInt(guessNumber)));
                     randIntLeft--;
                     points -= 5000;
                 } else System.out.println(Messages.HELPER_ERROR);
@@ -218,10 +212,11 @@ public class Game {
     }
 
     private void cycleStart() {
-        System.out.println(Messages.NEW_GAME_ASK);
         while (true) {
+            System.out.println(Messages.NEW_GAME_ASK);
             String flag = scanner.nextLine();
             if (flag.equalsIgnoreCase("да")) {
+                init();
                 System.out.println(Messages.HELP_ASK);
                 while (true) {
                     flag = scanner.nextLine();
@@ -238,9 +233,8 @@ public class Game {
                 start();
                 break;
             } else if (flag.equalsIgnoreCase("нет")) {
-                if (quit()) {
-                    break;
-                }
+                quit();
+                continue;
             } else {
                 System.out.println(Messages.INPUT_ERROR);
             }
@@ -249,27 +243,27 @@ public class Game {
     }
 
     private void gameOverNotify() {
-        System.out.println(Messages.GAME_OVER);
-        System.out.println(Messages.POINTS_SHOW + points + " " + Messages.TRY_COUNT_SHOW + tryCount);
+        System.out.println(String.format(Messages.GAME_OVER, tryCount));
+        System.out.println(String.format(Messages.POINTS_SHOW, points));
         System.out.println();
     }
 
-    private boolean quit() {
-        boolean quit;
+    private void quit() {
         System.out.println(Messages.QUIT_MSG);
         while (true) {
             String flag = scanner.nextLine();
             if (flag.equalsIgnoreCase("да")) {
-                quit = true;
+                gameOverNotify();
+                System.out.println(Messages.CREDITS);
+                System.exit(0);
                 break;
             } else if (flag.equalsIgnoreCase("нет")) {
-                quit = false;
                 break;
             } else {
                 System.out.println(Messages.INPUT_ERROR);
             }
         }
 
-        return quit;
+        return;
     }
 }

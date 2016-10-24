@@ -32,23 +32,23 @@ public final class Messages {
             "Вы можете:\n" +
             "Ввести число и попытаться угадать (-50 очков)\n" +
             "Ввести команду \"очки\" и посмотреть оставшееся количество очков\n" +
-            "[WIP]Ввести команду \"подсказка\", чтобы использовать одну из подсказок за очки\n" +
+            "Ввести команду \"подсказка\", чтобы использовать одну из подсказок за очки\n" +
             "Ввести команду \"выход\" для выхода из игры\n" +
             "Ввести команду \"кредиты\" для просмотра информации об игре\n" +
             "Ввести команду \"помощь\" для вывода этого сообщения";
     public static final String HELP_ASK = "Выводить текстовую помощь? да/нет";
     public static final String NEW_GAME_ASK = "Вы хотите сыграть ещё? да/нет";
-    public static final String POINTS_SHOW = "Ваши очки: ";
+    public static final String POINTS_SHOW = "Ваши очки: %1$d";
     public static final String WIN_CASE = "Вы угадали!";
     public static final String WRONG_CASE = "Вы не угадали.";
-    public static final String GAME_OVER = "Игра окончена.";
-    public static final String TRY_COUNT_SHOW = "Количество попыток: ";
-    public static final String HELPERS = "Вам доступны:\n";
-    public static final String HELPER_CUTTER = "1 - Обрезка диапазона пополам (-2000 очков): ";
-    public static final String HELPER_LOCATE = "2 - Местоположение относительно числа (-500 очков): ";
+    public static final String GAME_OVER = "Игра окончена.\nКоличество попыток: %1$d";
+    public static final String HELPERS =
+            "Вам доступны:\n" +
+            "1 - Обрезка диапазона пополам (-2000 очков): %1$d\n" +
+            "2 - Местоположение относительно числа (-500 очков): %2$d\n"+
+            "3 - Получение близкого к ответу числа (-5000 очков): %3$d\n"+
+            "4 - Выйти из меню подсказок";
     public static final String HELPER_LOCATE_INPUT = "Введите число для сравнения с загаданным числом: ";
-    public static final String HELPER_RANDINT = "3 - Получение близкого к ответу числа (-5000 очков) :";
-    public static final String HELPERS_LEAVE = "4 - Выйти из меню подсказок";
-    public static final String RANDINT_GOT = "Возможно, загаданное число - ";
+    public static final String RANDINT_GOT = "Возможно, загаданное число - %1$d";
     public static final String HELPER_ERROR = "Недостаточно средств для подсказки";
 }
