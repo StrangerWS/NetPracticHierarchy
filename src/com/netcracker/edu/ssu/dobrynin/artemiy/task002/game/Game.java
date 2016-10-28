@@ -131,6 +131,9 @@ public class Game {
             } else if (cmd.equalsIgnoreCase(("подсказка"))) {
                 askForHelp();
                 continue;
+            } else if (cmd.equalsIgnoreCase("границы")){
+                System.out.println(String.format(Messages.HELPER_BOUNDS, origin, bound));
+                continue;
             }
 
             try {
