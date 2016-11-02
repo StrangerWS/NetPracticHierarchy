@@ -34,7 +34,7 @@ public class Game {
     private void init() {
         origin = 1;
         bound = 1;
-        tryCount = 0;
+        tryCount = 1;
         helpMsg = true;
 
         cuttersLeft = 3;
