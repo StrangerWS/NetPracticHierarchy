@@ -1,4 +1,4 @@
-package com.netcracker.edu.ssu.dobrynin.artemiy.task004.personnel;
+package com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2;
 
 /**
  * Created by User on 04.11.2016.

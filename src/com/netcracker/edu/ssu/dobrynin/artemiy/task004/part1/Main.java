@@ -1,4 +1,4 @@
-package com.netcracker.edu.ssu.dobrynin.artemiy.task004;
+package com.netcracker.edu.ssu.dobrynin.artemiy.task004.part1;
 
 import java.util.*;
 
