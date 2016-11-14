@@ -1,4 +1,4 @@
-package com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.human.api;
+package com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.human;
 
 /**
  * Created by User on 13.11.2016.
