@@ -1,4 +1,4 @@
-package com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.controller;
+package com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.facade;
 
 import com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.company.Company;
 import com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.company.Department;
@@ -12,17 +12,17 @@ import java.util.TreeSet;
 /**
  * Created by User on 13.11.2016.
  */
-public class Controller {
+public class Facade {
 
-    public TreeSet<Employee> getProjectWorkers(Project project) {
+    public static TreeSet<Employee> getProjectWorkers(Project project) {
         return project.getEmployees();
     }
 
-    public TreeSet<Project> getEmployeeProjects(Employee employee) {
+    public static TreeSet<Project> getEmployeeProjects(Employee employee) {
         return employee.getProjects();
     }
 
-    public TreeSet<Employee> getUnassignedFromDepartment(Department department) {
+    public static TreeSet<Employee> getUnassignedFromDepartment(Department department) {
         TreeSet<Employee> unassignedDepartment = new TreeSet<>();
 
         for (Employee employee : department.getEmployees()) {
@@ -34,7 +34,7 @@ public class Controller {
         return unassignedDepartment;
     }
 
-    public TreeSet<Employee> getUnassignedFromCompany(Company company) {
+    public static TreeSet<Employee> getUnassignedFromCompany(Company company) {
         TreeSet<Employee> unassignedCompany = new TreeSet<>();
 
         for (Department department : company.getDepartments()) {
@@ -44,7 +44,7 @@ public class Controller {
         return unassignedCompany;
     }
 
-    public TreeSet<Employee> getSlavesForManager(ProjectManager manager) {
+    public static TreeSet<Employee> getSlavesForManager(ProjectManager manager) {
         TreeSet<Employee> slaves = new TreeSet<>();
 
         for (Project project : manager.getProjects()) {
@@ -54,7 +54,7 @@ public class Controller {
         return slaves;
     }
 
-    public TreeSet<ProjectManager> getManagersForSlave(Employee slave) {
+    public static TreeSet<ProjectManager> getManagersForSlave(Employee slave) {
         TreeSet<ProjectManager> managers = new TreeSet<>();
 
         for (Project project : slave.getProjects()) {
@@ -64,7 +64,7 @@ public class Controller {
         return managers;
     }
 
-    public TreeSet<Employee> getColleaguesForEmployee(Employee employee) {
+    public static TreeSet<Employee> getColleaguesForEmployee(Employee employee) {
         TreeSet<Employee> employees = new TreeSet<>();
 
         for (Project project : employee.getProjects()) {
@@ -74,11 +74,11 @@ public class Controller {
         return employees;
     }
 
-    public TreeSet<Project> getProjectForCustomer(Customer customer) {
+    public static TreeSet<Project> getProjectForCustomer(Customer customer) {
         return customer.getProjects();
     }
 
-    public TreeSet<Employee> getEmployeesForCustomersProjects(Customer customer) {
+    public static TreeSet<Employee> getEmployeesForCustomersProjects(Customer customer) {
         TreeSet<Employee> employees = new TreeSet<>();
 
         for (Project project : customer.getProjects()) {

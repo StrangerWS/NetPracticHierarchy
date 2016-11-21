@@ -1,7 +1,7 @@
 package com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.human.impl;
 
 import com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.company.Project;
-import com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.human.api.Human;
+import com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.human.Human;
 
 import java.util.TreeSet;
 
@@ -22,5 +22,10 @@ public class Customer extends Human {
 
     public void addProject(Project project) {
         projects.add(project);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nprojects: " + projects;
     }
 }

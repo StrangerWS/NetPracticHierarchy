@@ -9,27 +9,31 @@ import java.util.TreeSet;
 /**
  * Created by User on 13.11.2016.
  */
-public class Project {
+public class Project implements Comparable<Project> {
 
     Customer customer;
     ProjectManager manager;
     TreeSet<Employee> employees;
+    String name;
 
-    public Project(Customer customer) {
+    public Project(String name, Customer customer) {
 
         this.customer = customer;
+        this.name = name;
     }
 
-    public Project(Customer customer, ProjectManager manager) {
+    public Project(String name, Customer customer, ProjectManager manager) {
         this.customer = customer;
         this.manager = manager;
+        this.name = name;
     }
 
-    public Project(Customer customer, ProjectManager manager, TreeSet<Employee> employees) {
+    public Project(String name, Customer customer, ProjectManager manager, TreeSet<Employee> employees) {
 
         this.customer = customer;
         this.manager = manager;
         this.employees = employees;
+        this.name = name;
     }
 
     public Customer getCustomer() {
@@ -42,6 +46,10 @@ public class Project {
 
     public TreeSet<Employee> getEmployees() {
         return employees;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -63,5 +71,10 @@ public class Project {
         result = 31 * result + (manager != null ? manager.hashCode() : 0);
         result = 31 * result + (employees != null ? employees.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int compareTo(Project o) {
+        return name.compareTo(o.getName());
     }
 }

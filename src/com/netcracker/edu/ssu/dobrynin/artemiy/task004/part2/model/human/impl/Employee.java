@@ -2,7 +2,7 @@ package com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.human.impl;
 
 import com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.company.Department;
 import com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.company.Project;
-import com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.human.api.Human;
+import com.netcracker.edu.ssu.dobrynin.artemiy.task004.part2.model.human.Human;
 
 import java.util.TreeSet;
 
@@ -22,9 +22,19 @@ public class Employee extends Human {
         return projects;
     }
 
+    public Employee(String name, Department department) {
+        this.setName(name);
+        this.department = department;
+    }
+
     public Employee(String name, Department department, TreeSet<Project> projects) {
         this.setName(name);
         this.department = department;
         this.projects = projects;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nDepartment" + department.getName() + "\nProjects: " + projects;
     }
 }

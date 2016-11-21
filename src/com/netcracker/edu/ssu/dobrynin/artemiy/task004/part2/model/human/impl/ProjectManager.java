@@ -12,6 +12,10 @@ public class ProjectManager extends Employee {
 
     Project project;
 
+    public ProjectManager(String name, Department department) {
+        super(name, department);
+    }
+
     public ProjectManager(String name, Department department, TreeSet<Project> projects) {
         super(name, department, projects);
     }
@@ -19,5 +23,17 @@ public class ProjectManager extends Employee {
     public ProjectManager(String name, Department department, TreeSet<Project> projects, Project project) {
         super(name, department, projects);
         this.project = project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public String toString() {
+        return super.toString() + "\nLead Project: " + project.getName();
     }
 }
